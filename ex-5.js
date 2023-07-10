@@ -4,7 +4,7 @@ function getLetterFrequency(words) {
 
 const str = "Techupth";
 
-getLetterFrequency(words);
+getLetterFrequency(str);
 
 /* Output:
 {
