@@ -1,23 +1,26 @@
 import fs from "fs/promises";
-import { expect, test, describe } from "vitest";
+import { jest } from "@jest/globals";
 
-describe("Exercise 5", () => {
-  test("ผลลัพธ์จากการ Execute ตัว Function getLetterFrequency ถูกต้องตามโจทย์", async () => {
+describe("Loops tests cases", () => {
+  beforeAll(() => {
+    jest.spyOn(console, "log");
+  });
+  afterAll(() => {
+    jest.resetAllMocks();
+  });
+
+  test("exercise 5: console.log ออกมาได้อย่างถูกต้องตาม format ที่กำหนด", async () => {
     const data = await fs.readFile("./ex-5.js");
-    const code = `${data} \n return { getLetterFrequency }`;
+    const code = `${data}`;
 
     const func = new Function(code);
-    const { getLetterFrequency } = func();
+    func();
+    const expectedLog = [
+      ["Average score is 56.333333333333336"],
+      ["Mick has highest score, which is 89 points"],
+      ["Ole has lowest score, which is 10 points"],
+    ];
 
-    const str = "Techupth";
-
-    expect(getLetterFrequency(str)).toEqual({
-      t: 2,
-      e: 1,
-      c: 1,
-      h: 2,
-      u: 1,
-      p: 1,
-    });
+    expect(console.log.mock.calls).toEqual(expect.arrayContaining(expectedLog));
   });
 });

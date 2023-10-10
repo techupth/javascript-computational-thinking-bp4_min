@@ -1,18 +1,12 @@
-function getLetterFrequency(words) {
-  // Start coding here
-}
+// Exercise #5: Classroom Scores
 
-const str = "Techupth";
+let studentsScore = {
+  James: 40,
+  Ann: 80,
+  Joe: 52,
+  Ball: 67,
+  Mick: 89,
+  Ole: 10,
+};
 
-getLetterFrequency(str);
-
-/* Output:
-{
-  t: 2,
-  e: 1,
-  c: 1,
-	h: 2,
-	u: 1,
-	p: 1
-}
-*/
+// Start coding here

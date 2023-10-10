@@ -1,18 +1,34 @@
 import fs from "fs/promises";
-import { expect, test, describe } from "vitest";
+import { jest } from "@jest/globals";
 
-describe("Exercise 1", () => {
-  test("ผลลัพธ์จากการ Execute ตัว Function addNumbers ถูกต้องตามโจทย์", async () => {
-    const data = await fs.readFile("./ex-1.js");
-    const code = `${data} \n return { addNumber }`;
+describe("Loops tests cases", () => {
+  beforeAll(() => {
+    jest.spyOn(console, "log");
+  });
+
+  afterAll(() => {
+    jest.resetAllMocks();
+  });
+
+  test("exercise 1: คุณจะต้องใช้ For Loop", async () => {
+    const data = await fs.readFile("./ex-5.js");
+    const code = `${data}`;
 
     const func = new Function(code);
-    const { addNumber } = func();
+    func();
+    const hasForLoop = /for\s*\([^)]*\)\s*\{/.test(code);
 
-    let numbers = [10, 20, 30];
-    let anotherNumbers = [2, 4, 6];
+    expect(hasForLoop).toBe(true);
+  });
 
-    expect(addNumber(numbers, 10)).toEqual([20, 30, 40]);
-    expect(addNumber(anotherNumbers, 2)).toEqual([4, 6, 8]);
+  test("exercise 1: console.log ออกมาได้อย่างถูกต้องตาม format ที่กำหนด ", async () => {
+    const data = await fs.readFile("./ex-1.js");
+    const code = `${data}`;
+
+    const func = new Function(code);
+    func();
+    const expectedLog = [["Order id: 8, Total price: 36884000"]];
+
+    expect(console.log.mock.calls).toEqual(expect.arrayContaining(expectedLog));
   });
 });

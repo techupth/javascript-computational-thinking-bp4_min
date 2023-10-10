@@ -1,25 +1,56 @@
 import fs from "fs/promises";
-import { expect, test, describe } from "vitest";
+import { jest } from "@jest/globals";
 
-describe("Exercise 3", () => {
-  test("ผลลัพธ์จากการ Execute ตัว Function getMostExpensiveProduct ถูกต้องตามโจทย์", async () => {
+describe("Loops tests cases", () => {
+  beforeAll(() => {
+    jest.spyOn(console, "log");
+  });
+  afterAll(() => {
+    jest.resetAllMocks();
+  });
+  test("exercise 3: คุณจะต้องใช้ For Loop", async () => {
     const data = await fs.readFile("./ex-3.js");
-    const code = `${data} \n return { getMostExpensiveProduct }`;
+    const code = `${data}`;
 
     const func = new Function(code);
-    const { getMostExpensiveProduct } = func();
+    func();
+    const hasForLoop = /for\s*\([^)]*\)\s*\{/.test(code);
 
-    const products = [
-      { name: "Laptop", price: 1000 },
-      { name: "Smartphone", price: 700 },
-      { name: "Tablet", price: 500 },
-      { name: "Headphones", price: 300 },
-      { name: "Keyboard", price: 50 },
-    ];
+    expect(hasForLoop).toBe(true);
+  });
 
-    expect(getMostExpensiveProduct(products)).toEqual({
-      name: "Laptop",
-      price: 1000,
-    });
+  test("exercise 3: console.log ออกมาได้อย่างถูกต้องตาม format ที่กำหนด ", async () => {
+    const data = await fs.readFile("./ex-3.js");
+    const code = `${data} return jcbOrders`;
+
+    const func = new Function(code);
+    const jcbOrders = func();
+
+    expect(jcbOrders).toEqual([
+      {
+        id: 2,
+        customerName: "Celia Dary",
+        productName: "Bread - Pumpernickle, Rounds",
+        productPrice: 10746,
+        productQuantity: 87,
+        creditCardType: "jcb",
+      },
+      {
+        id: 5,
+        customerName: "Kennith Bussons",
+        productName: "Wine - White, Pinot Grigio",
+        productPrice: 94432,
+        productQuantity: 75,
+        creditCardType: "jcb",
+      },
+      {
+        id: 9,
+        customerName: "Cris Druce",
+        productName: "Bar Mix - Lemon",
+        productPrice: 83104,
+        productQuantity: 6,
+        creditCardType: "jcb",
+      },
+    ]);
   });
 });
