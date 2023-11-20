@@ -1,5 +1,3 @@
-//Exercise 2 : Orders Analysis 2 (For Loop)
-
 let orders = [
   {
     id: 1,
@@ -82,7 +80,5 @@ let orders = [
     creditCardType: "visa-electron",
   },
 ];
-
-let birdiePurchasedAmount;
 
 // Start coding here

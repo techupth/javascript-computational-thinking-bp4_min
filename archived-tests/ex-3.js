@@ -9,7 +9,7 @@ describe("Loops tests cases", () => {
     jest.resetAllMocks();
   });
   test("exercise 2: คุณจะต้องใช้ For Loop", async () => {
-    const data = await fs.readFile("./ex-2.js");
+    const data = await fs.readFile("./ex-3.js");
     const code = `${data}`;
 
     const func = new Function(code);
@@ -20,7 +20,7 @@ describe("Loops tests cases", () => {
   });
 
   test("exercise 2: console.log ออกมาได้อย่างถูกต้องตาม format ที่กำหนด ", async () => {
-    const data = await fs.readFile("./ex-2.js");
+    const data = await fs.readFile("./ex-3.js");
     const code = `${data} return birdiePurchasedAmount`;
 
     const func = new Function(code);

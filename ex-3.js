@@ -1,5 +1,3 @@
-// Exercise #3: Orders Analysis 3 (For Loop)
-
 let orders = [
   {
     id: 1,
@@ -83,5 +81,4 @@ let orders = [
   },
 ];
 
-const jcbOrders = [];
 // Start coding here

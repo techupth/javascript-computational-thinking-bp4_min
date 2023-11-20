@@ -1,5 +1,3 @@
-// Exercise #4: Orders Analysis 4 (For Loop)
-
 let orders = [
   {
     id: 1,
@@ -83,5 +81,4 @@ let orders = [
   },
 ];
 
-let sumPurchasedAmount = 0;
 // Start coding here

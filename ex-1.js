@@ -1,5 +1,3 @@
-// Exercise #1: Orders Analysis 1 (For Loop)
-
 let orders = [
   {
     id: 1,
@@ -82,9 +80,5 @@ let orders = [
     creditCardType: "visa-electron",
   },
 ];
-
-let currentPurchasedAmount;
-let maxPurchasedAmount;
-let maxPurchasedId;
 
 // Start coding here

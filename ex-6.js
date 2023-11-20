@@ -1,5 +1,3 @@
-//Exercise #6 Debugging (Conditional Logic + Function + If Else)
-
 //Start coding here
 function calculateTax(income) {
   const taxPercentage;
