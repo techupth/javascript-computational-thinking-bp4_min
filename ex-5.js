@@ -81,4 +81,58 @@ let orders = [
   },
 ];
 
-// Start coding here
+let scoreTest = [
+  {
+    name: "James",
+    point: 40,
+  },
+  {
+    name: "Ann",
+    point: 80,
+  },
+  {
+    name: "Joe",
+    point: 52,
+  },
+  {
+    name: "Ball",
+    point: 67,
+  },
+  {
+    name: "Mick",
+    point: 89,
+  },
+  {
+    name: "Ole",
+    point: 10,
+  }
+]
+let avgScore = 0
+let totalScore = 0
+for(let i=0; i < scoreTest.length; i++){
+  totalScore = totalScore + scoreTest[i].point 
+  avgScore = totalScore/scoreTest.length
+}
+console.log(`Average score is ${avgScore.toLocaleString()}`)
+
+let mostScore =0
+let mostScoreName
+for(let i=0; i< scoreTest.length; i++){
+   let score = scoreTest[i].point
+  if(score > mostScore){
+    mostScore = score
+    mostScoreName = scoreTest[i].name
+  }
+}
+console.log(`${mostScoreName} has the highest score, which is ${mostScore} points`)
+
+let minScore =100
+let minScoreName
+for(let i=0; i< scoreTest.length; i++){
+   let scores = scoreTest[i].point
+  if(scores < minScore){
+    minScore = scores
+    minScoreName = scoreTest[i].name
+  }
+}
+console.log(`${minScoreName} has the Lowest score, which is ${minScore} points`)

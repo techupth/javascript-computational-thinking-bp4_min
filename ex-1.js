@@ -80,5 +80,14 @@ let orders = [
     creditCardType: "visa-electron",
   },
 ];
-
-// Start coding here
+let mostExpensiveOrder = null
+let maxPaidAmountOrder = 0
+for(let i=0; i < orders.length; i++){
+  let paidAmount = orders[i].productPrice * orders[i].productQuantity
+  if(paidAmount > maxPaidAmountOrder){
+    maxPaidAmountOrder = paidAmount;
+    mostExpensiveOrder = orders[i];
+  }
+}
+console.log(mostExpensiveOrder);
+console.log(maxPaidAmountOrder.toLocaleString())
